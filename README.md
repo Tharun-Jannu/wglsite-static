@@ -1,0 +1,1 @@
+# wglsite-static
