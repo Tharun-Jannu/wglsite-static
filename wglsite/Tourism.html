@@ -1,0 +1,275 @@
+<html>
+<head>
+<title>  Warangal Profile </title>
+
+<style>
+.spanstyle{
+position:absolute;
+visibility:visible;
+top:50px;
+font-size:10px;
+font-family:COMIC SANS MS;
+font-weight:bold;
+color:green;
+}
+.buttonmenu{
+width=270px;
+}
+.buttonmenu li a{
+ color:white;
+display:block;
+padding:2px,4px;
+height:26px;
+font-weight:bold;
+border:4px solid;
+border-color:dimgray;
+background-color:blue;
+}
+.buttonmenu li a:visited{
+color:white;
+}
+.buttonmenu li a:hover,
+.buttonmenu li a:active{
+color:black;
+background-color:red;
+}
+.style{
+text-align:center;
+}
+
+</style>
+</head>
+<body bgcolor="honeydew">
+<table align="center" width="1300"  bordercolor="wheat" style="padding:inherit; margin:inherit;border:medium ridge #80800;">
+<tbody>
+<tr style="border:medium ridge #ffb366;">
+<td width="250" style="border:thin ridge #808080;">
+<img src="midde2.jpg" width="250" height="210" border="0">
+</td>
+<td width="500" style="border:thin ridge #808080; background-color:whitesmoke" colspan="2" >
+<img src="wgl.png" width="760" height="200" border="1">
+</td>
+
+</tr>
+
+<tr>
+
+
+<td width="250" height="350" style="border:thin ridge #808080;">
+<ul class="buttonmenu">
+<li>
+<a href="histroy2.html"target="blanck"> Histroy </a>
+</li> <br> <br> 
+
+Website Designed By:- <br>
+<font face="britannic" size="4" color="pale blue"><br>
+<a>
+ JANNU THARUN</font></a>
+</td>
+
+<td width="500" style="border:thin ridge #808080" colspan="2">
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {		
+	
+	//Execute the slideShow
+	slideShow();
+
+});
+
+function slideShow() {
+
+	//Set the opacity of all images to 0
+	$('#gallery a').css({opacity: 0.0});
+	
+	//Get the first image and display it (set it to full opacity)
+	$('#gallery a:first').css({opacity: 1.0});
+	
+	//Set the caption background to semi-transparent
+	$('#gallery .caption').css({opacity: 0.7});
+
+	//Resize the width of the caption according to the image width
+	$('#gallery .caption').css({width: $('#gallery a').find('img').css('width')});
+	
+	//Get the caption of the first image from REL attribute and display it
+	$('#gallery .content').html($('#gallery a:first').find('img').attr('rel'))
+	.animate({opacity: 1}, 400);
+	
+	//Call the gallery function to run the slideshow, 6000 = change to next image after 6 seconds
+	setInterval('gallery()',3000);
+	
+}
+
+function gallery() {
+	
+	//if no IMGs have the show class, grab the first image
+	var current = ($('#gallery a.show')?  $('#gallery a.show') : $('#gallery a:first'));
+
+	//Get next image, if it reached the end of the slideshow, rotate it back to the first image
+	var next = ((current.next().length) ? ((current.next().hasClass('caption'))? $('#gallery a:first') :current.next()) : $('#gallery a:first'));	
+	
+	//Get next image caption
+	var caption = next.find('img').attr('rel');	
+	
+	//Set the fade in effect for the next image, show class has higher z-index
+	next.css({opacity: 0.0})
+	.addClass('show')
+	.animate({opacity: 1.0}, 1000);
+
+	//Hide the current image
+	current.animate({opacity: 0.0}, 1000)
+	.removeClass('show');
+	
+	//Set the opacity to 0 and height to 1px
+	$('#gallery .caption').animate({opacity: 0.0}, { queue:false, duration:0 }).animate({height: '0px'}, { queue:true, duration:300 });	
+	
+	//Animate the caption, opacity to 0.7 and heigth to 20px, a slide up effect
+	$('#gallery .caption').animate({opacity: 1},20 ).animate({height: '30px'},800 );
+	
+	//Display the content
+	$('#gallery .content').html(caption);
+	
+	
+}
+
+</script>
+<style type="text/css">
+body{
+	font-family:12px/24px Arial;
+}
+
+
+.clear {
+	clear:both
+}
+
+#gallery {
+	position:relative;
+	height:400px
+              }
+	#gallery a {
+		float:left;
+		position:absolute;
+	}
+	
+	#gallery a img {
+		border:none;
+	}
+	
+	#gallery a.show {
+		z-index:50
+	}
+
+	#gallery .caption {
+		z-index:80;
+		color:red; 
+		height:30px; 
+                                 font-family:Britannic;
+                                  font-size:38px;
+		width:100%; 
+		position:absolute;
+		bottom:20;
+	}
+
+	#gallery .caption .content {
+		margin:10px
+	}
+	
+	#gallery .caption .content h3 {
+		margin:0;
+		padding:0;
+		color:red;
+	}
+	
+
+</style>
+
+
+
+<div id="gallery">
+
+
+	<a href="#" class="show">
+		<img src="middle.jpg" width="770" height="350" rel="Warangal Fort"/>
+	</a>
+	
+	<a href="#">
+		<img src="pillar.jpg" width="770" height="350" rel="1000 Pillar Temple"/>
+	</a>
+	
+	<a href="#">
+		<img src="thornam2.jpg" width="770" height="350" rel="Warangal Thoranam"/>
+	</a>
+
+	<a href="#">
+		<img src="lk.jpg" width="770" height="350" rel="Laknavaram"/>
+	</a>
+                <a href="#">
+		<img src="kush.jpg" width="770" height="350" rel="Kush Mahal"/>
+	</a>
+                 <a href="#">
+		<img src="medaram2.jpg" width="770" height="350" rel="Medaram Sammaka-sarakka Jathara"/>
+	</a>
+
+	
+	<a href="#">
+		<img src="bk2.jpg" width="770" height="350" rel="Bhadrakali Temple"/>
+	</a>
+	
+	<a href="#">		
+                             <img src="ram.jpg" width="770" height="350" rel="Rammappa Temple"/>	
+                </a>
+               <a href="#">
+		<img src="pakala.jpg" width="770" height="350" rel="pakhala Lake"/>
+	 </a>
+                 <a href="#">
+		<img src="medaram1.png" width="770" height="350" rel="Medaram Jathara"/>
+	</a>
+                
+           
+	<div class="caption"><div class="content"></div></div>
+</div>
+</td>
+
+
+<td width="250"  height="350" style="border:thin ridge #808080;">
+<font face="britannic" size="4" color="red"><p align="center">
+Tourist Places </font></p>
+<ul class="buttonmenu">
+
+<li>
+<a href="Rammapa.html" target="blanck"> Rammappa </a>
+</li>
+<li>
+<a href="laknavaram.html" target="blanck"> Laknavaram </a>
+</li>
+<li>
+<a href="fortwgl.html" target="blanck"> Fort Warangal </a>
+</li>
+
+
+<li>
+<a href="sammaka.html" target="blanck"> Sammaka Jatara </a>
+</li>
+<li>
+<a href="thousand.html" target="blanck"> Thousand Pillar Temple </a>
+</li>
+<li>
+<a href="pakkala.html" target="blanck">Pakhala Lake </a>
+</li>
+<li>
+<a href="bhadrakali.html" target="blanck"> Bhadrakali Temple </a>
+</li>
+</td>
+</tr>
+
+
+
+</tbody>
+</table>
+</body>
+</html>
+
+
